@@ -2,6 +2,7 @@ package io.javabrains.reactiveworkshop;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Java8StreamsProgrammingQuestions {
@@ -48,5 +49,67 @@ public class Java8StreamsProgrammingQuestions {
         Set<String> uniqueDepart = studentList.stream().map(s -> s.getDept()).collect(Collectors.toSet());
         System.out.println(uniqueDepart);
 
+        String s = "raja";
+        String s1 = "ra";
+        String s2 = "ja";
+        String s3 = s1 + s2;
+        System.out.println(s3.hashCode());
+        System.out.println(s == s3);
+        String s4 = "raja";
+        System.out.println(s == s4);
+        System.out.println(s.hashCode());
+        System.out.println(s4.hashCode());
+        if (s == s4) {
+            System.out.println("euals");
+        }
+        if (s == s3) {
+            System.out.println("s3 euals");
+        }
+        String s5 = new String("raja");
+        System.out.println(s5.hashCode());
+        Integer i = new Integer(1);
+        Integer i1 = new Integer(1);
+        System.out.println(i.hashCode());
+        System.out.println(i1.hashCode());
+        if (i == i1) {
+            System.out.println("both are same");
+        }
+        Student student = new Student(1, "Rohit", 30, "Male", "Mechanical Engineering", "Mumbai", 122, Arrays.asList("+912632632782", "+1673434729929"));
+        MpdifyStudent(student);
+        System.out.println(student);
+        Integer z = new Integer(10);
+        MpdifyStudentInteger(z);
+        System.out.println(z);
+        String s123 = "ramesh";
+        ModifyString(s123);
+        System.out.println(s123);
+        StringBuilder sb = new StringBuilder("abc");
+        ModifyStringBulder(sb);
+        System.out.println(sb);
+
+
+        //summ of a list
+        OptionalInt reduce1 = IntStream.range(1, 6).reduce((a, b) -> a * b);
+        Optional<Integer> reduce = studentList.stream().map(z1 -> z1.getRank()).reduce((a, b) -> a + b);
+        System.out.println(reduce1);
+
+    }
+
+    static void MpdifyStudent(Student s) {
+        s.setFirstName("raja");
+        s.setId(11111);
+    }
+
+    static void MpdifyStudentInteger(Integer i) {
+        i = 9999;
+    }
+
+    static void ModifyString(String i) {
+        i = "Juluru";
+    }
+
+    static void ModifyStringBulder(StringBuilder i) {
+        i.append("rames");
+        // i = new StringBuilder("cbaghadh");
     }
 }
