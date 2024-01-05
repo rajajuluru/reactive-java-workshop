@@ -50,9 +50,9 @@ public class Java8StreamsProgrammingQuestions {
         System.out.println(uniqueDepart);
 
         String s = "raja";
-        String s1 = "ra";
-        String s2 = "ja";
-        String s3 = s1 + s2;
+        final String s1 = "ra";
+        final String s2 = "ja";
+        String s3 = s1.concat(s2);
         System.out.println(s3.hashCode());
         System.out.println(s == s3);
         String s4 = "raja";
@@ -66,6 +66,10 @@ public class Java8StreamsProgrammingQuestions {
             System.out.println("s3 euals");
         }
         String s5 = new String("raja");
+        System.out.println(s4 == s5);
+        s5.intern();
+        System.out.println("after intern");
+        System.out.println(s4 == s5);
         System.out.println(s5.hashCode());
         Integer i = new Integer(1);
         Integer i1 = new Integer(1);
